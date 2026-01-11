@@ -50,7 +50,10 @@ app_license = "mit"
 
 # Website Route Rules - Using www/portal.py instead
 # ------------------
-# website_route_rules = []
+website_route_rules = [
+	{"from_route": "/portal", "to_route": "portal"},
+	{"from_route": "/login", "to_route": "dcp_management/www/dcp_login_redirect"},
+]
 
 
 # Svg Icons
@@ -62,12 +65,15 @@ app_license = "mit"
 # ----------
 
 # application home page (will override Website Settings)
-# home_page = "login"
+home_page = "portal"
 
 # website user home page (by Role)
-# role_home_page = {
-# 	"Role": "home_page"
-# }
+role_home_page = {
+	"Customer": "/portal"
+}
+
+# Website user home page (computed)
+get_website_user_home_page = "dcp_management.utils.get_customer_home_page"
 
 # Generators
 # ----------
@@ -201,7 +207,7 @@ app_license = "mit"
 
 # Request Events
 # ----------------
-# before_request = ["dcp_management.utils.before_request"]
+before_request = ["dcp_management.utils.before_request"]
 # after_request = ["dcp_management.utils.after_request"]
 
 # Job Events
