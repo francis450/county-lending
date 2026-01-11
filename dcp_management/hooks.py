@@ -48,6 +48,11 @@ app_license = "mit"
 # doctype_tree_js = {"doctype" : "public/js/doctype_tree.js"}
 # doctype_calendar_js = {"doctype" : "public/js/doctype_calendar.js"}
 
+# Website Route Rules - Using www/portal.py instead
+# ------------------
+# website_route_rules = []
+
+
 # Svg Icons
 # ------------------
 # include app icons in desk
