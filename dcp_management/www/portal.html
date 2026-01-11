@@ -1,0 +1,23 @@
+{% raw %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>County Lending - Fast Digital Loans in Kenya</title>
+    <script type="module" crossorigin src="/assets/dcp_management/frontend/dist/assets/index-yS7Suom_.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/dcp_management/frontend/dist/assets/index-C6crdwid.css">
+  </head>
+  <body>
+    <div id="app"></div>
+{% endraw %}
+    <script>
+      // Set CSRF token from cookie for API calls
+      window.csrf_token = '{{ frappe.session.csrf_token }}';
+      if (window.csrf_token) {
+        document.cookie = 'csrf_token=' + encodeURIComponent(window.csrf_token) + '; path=/';
+      }
+    </script>
+  </body>
+</html>
