@@ -1,0 +1,243 @@
+{
+ "actions": [],
+ "autoname": "format:DCP-CUST-{#####}",
+ "creation": "2026-01-11 10:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "basic_details_section",
+  "first_name",
+  "last_name",
+  "email",
+  "phone",
+  "column_break_1",
+  "status",
+  "customer_link",
+  "user_link",
+  "kyc_section",
+  "kyc_status",
+  "kyc_verified_date",
+  "column_break_kyc",
+  "verified_by",
+  "kyc_documents_section",
+  "national_id",
+  "national_id_front",
+  "national_id_back",
+  "column_break_3",
+  "kra_pin",
+  "kra_pin_certificate",
+  "passport_photo",
+  "address_section",
+  "residential_address",
+  "county",
+  "column_break_address",
+  "city",
+  "postal_code",
+  "consent_section",
+  "consent_logs"
+ ],
+ "fields": [
+  {
+   "fieldname": "basic_details_section",
+   "fieldtype": "Section Break",
+   "label": "Basic Details"
+  },
+  {
+   "fieldname": "first_name",
+   "fieldtype": "Data",
+   "label": "First Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "last_name",
+   "fieldtype": "Data",
+   "label": "Last Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "email",
+   "fieldtype": "Data",
+   "label": "Email",
+   "options": "Email",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "phone",
+   "fieldtype": "Data",
+   "label": "Phone",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Pending\nActive\nSuspended\nRejected",
+   "default": "Pending"
+  },
+  {
+   "fieldname": "customer_link",
+   "fieldtype": "Link",
+   "label": "ERPNext Customer",
+   "options": "Customer"
+  },
+  {
+   "fieldname": "user_link",
+   "fieldtype": "Link",
+   "label": "User Account",
+   "options": "User"
+  },
+  {
+   "fieldname": "kyc_section",
+   "fieldtype": "Section Break",
+   "label": "KYC Verification Status"
+  },
+  {
+   "fieldname": "kyc_status",
+   "fieldtype": "Select",
+   "label": "KYC Status",
+   "options": "Incomplete\nPending Verification\nVerified\nRejected",
+   "default": "Incomplete"
+  },
+  {
+   "fieldname": "kyc_verified_date",
+   "fieldtype": "Datetime",
+   "label": "KYC Verified Date",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_kyc",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "verified_by",
+   "fieldtype": "Link",
+   "label": "Verified By",
+   "options": "User",
+   "read_only": 1
+  },
+  {
+   "fieldname": "kyc_documents_section",
+   "fieldtype": "Section Break",
+   "label": "KYC Documents (CBK Required)"
+  },
+  {
+   "fieldname": "national_id",
+   "fieldtype": "Data",
+   "label": "National ID Number",
+   "length": 8,
+   "unique": 1
+  },
+  {
+   "fieldname": "national_id_front",
+   "fieldtype": "Attach",
+   "label": "National ID (Front)",
+   "is_private": 1
+  },
+  {
+   "fieldname": "national_id_back",
+   "fieldtype": "Attach",
+   "label": "National ID (Back)",
+   "is_private": 1
+  },
+  {
+   "fieldname": "column_break_3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "kra_pin",
+   "fieldtype": "Data",
+   "label": "KRA PIN",
+   "length": 11
+  },
+  {
+   "fieldname": "kra_pin_certificate",
+   "fieldtype": "Attach",
+   "label": "KRA PIN Certificate",
+   "is_private": 1
+  },
+  {
+   "fieldname": "passport_photo",
+   "fieldtype": "Attach Image",
+   "label": "Passport Photo",
+   "is_private": 1
+  },
+  {
+   "fieldname": "address_section",
+   "fieldtype": "Section Break",
+   "label": "Residential Address"
+  },
+  {
+   "fieldname": "residential_address",
+   "fieldtype": "Small Text",
+   "label": "Residential Address"
+  },
+  {
+   "fieldname": "county",
+   "fieldtype": "Data",
+   "label": "County"
+  },
+  {
+   "fieldname": "column_break_address",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "city",
+   "fieldtype": "Data",
+   "label": "City/Town"
+  },
+  {
+   "fieldname": "postal_code",
+   "fieldtype": "Data",
+   "label": "Postal Code"
+  },
+  {
+   "fieldname": "consent_section",
+   "fieldtype": "Section Break",
+   "label": "Consent & Data Protection Logs"
+  },
+  {
+   "fieldname": "consent_logs",
+   "fieldtype": "Table",
+   "label": "Consent Logs",
+   "options": "Consent Log"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-01-11 10:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "DCP Management",
+ "name": "DCP Customer",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "if_owner": 1,
+   "print": 1,
+   "read": 1,
+   "role": "Customer",
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
