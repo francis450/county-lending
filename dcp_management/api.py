@@ -48,6 +48,11 @@ def onboard_customer(data):
             "kyc_status": "Incomplete"
         })
         dcp_customer.insert(ignore_permissions=True)
+        
+        # Explicitly assign ownership to the new user
+        dcp_customer.owner = user.name
+        dcp_customer.db_update()
+
         frappe.db.commit()
         
         # Don't auto-login - user must set password via email first
