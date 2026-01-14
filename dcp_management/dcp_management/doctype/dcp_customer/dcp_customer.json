@@ -1,7 +1,7 @@
 {
  "actions": [],
  "autoname": "format:DCP-CUST-{#####}",
- "creation": "2026-01-11 10:00:00.000000",
+ "creation": "2026-01-11 10:00:00",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
@@ -45,18 +45,21 @@
   {
    "fieldname": "first_name",
    "fieldtype": "Data",
+   "in_list_view": 1,
    "label": "First Name",
    "reqd": 1
   },
   {
    "fieldname": "last_name",
    "fieldtype": "Data",
+   "in_list_view": 1,
    "label": "Last Name",
    "reqd": 1
   },
   {
    "fieldname": "email",
    "fieldtype": "Data",
+   "in_list_view": 1,
    "label": "Email",
    "options": "Email",
    "reqd": 1,
@@ -65,6 +68,7 @@
   {
    "fieldname": "phone",
    "fieldtype": "Data",
+   "in_list_view": 1,
    "label": "Phone",
    "reqd": 1
   },
@@ -73,11 +77,11 @@
    "fieldtype": "Column Break"
   },
   {
+   "default": "Pending",
    "fieldname": "status",
    "fieldtype": "Select",
    "label": "Status",
-   "options": "Pending\nActive\nSuspended\nRejected",
-   "default": "Pending"
+   "options": "Pending\nActive\nSuspended\nRejected"
   },
   {
    "fieldname": "customer_link",
@@ -97,11 +101,11 @@
    "label": "KYC Verification Status"
   },
   {
+   "default": "Incomplete",
    "fieldname": "kyc_status",
    "fieldtype": "Select",
    "label": "KYC Status",
-   "options": "Incomplete\nPending Verification\nVerified\nRejected",
-   "default": "Incomplete"
+   "options": "Incomplete\nPending Verification\nVerified\nRejected"
   },
   {
    "fieldname": "kyc_verified_date",
@@ -135,14 +139,12 @@
   {
    "fieldname": "national_id_front",
    "fieldtype": "Attach",
-   "label": "National ID (Front)",
-   "is_private": 1
+   "label": "National ID (Front)"
   },
   {
    "fieldname": "national_id_back",
    "fieldtype": "Attach",
-   "label": "National ID (Back)",
-   "is_private": 1
+   "label": "National ID (Back)"
   },
   {
    "fieldname": "column_break_3",
@@ -157,14 +159,12 @@
   {
    "fieldname": "kra_pin_certificate",
    "fieldtype": "Attach",
-   "label": "KRA PIN Certificate",
-   "is_private": 1
+   "label": "KRA PIN Certificate"
   },
   {
    "fieldname": "passport_photo",
    "fieldtype": "Attach Image",
-   "label": "Passport Photo",
-   "is_private": 1
+   "label": "Passport Photo"
   },
   {
    "fieldname": "address_section",
@@ -209,8 +209,8 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2026-01-11 10:00:00.000000",
- "modified_by": "Administrator",
+ "modified": "2026-01-14 23:07:56.764864",
+ "modified_by": "franciskamande2001@gmail.com",
  "module": "DCP Management",
  "name": "DCP Customer",
  "owner": "Administrator",
@@ -228,15 +228,29 @@
    "write": 1
   },
   {
+   "create": 1,
+   "if_owner": 1,
+   "read": 1,
+   "role": "Customer",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
    "email": 1,
    "export": 1,
    "if_owner": 1,
    "print": 1,
    "read": 1,
-   "role": "Customer",
+   "report": 1,
+   "role": "Guest",
+   "select": 1,
+   "share": 1,
    "write": 1
   }
  ],
+ "row_format": "Dynamic",
  "sort_field": "modified",
  "sort_order": "DESC",
  "states": []
