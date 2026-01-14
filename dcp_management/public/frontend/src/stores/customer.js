@@ -36,6 +36,22 @@ export const useCustomerStore = defineStore('customer', () => {
     }
   }
 
+  async function fetchCurrentUser() {
+    loading.value = true
+    error.value = null
+    try {
+      const res = await api.get('/api/method/dcp_management.api.get_current_user_customer')
+      if (res.message && res.message.customer) {
+        customer.value = res.message.customer
+      }
+    } catch (err) {
+      error.value = err.message
+      console.error('Failed to fetch current user:', err)
+    } finally {
+      loading.value = false
+    }
+  }
+
   async function updateCustomer(data) {
     loading.value = true
     error.value = null
@@ -73,6 +89,7 @@ export const useCustomerStore = defineStore('customer', () => {
     fullName,
     initials,
     fetchCustomer,
+    fetchCurrentUser,
     updateCustomer,
     setCustomer,
     logout

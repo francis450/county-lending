@@ -15,14 +15,8 @@
               <p class="text-gray-600">{{ customerStore.customer?.email || 'customer@example.com' }}</p>
             </div>
           </div>
-          <button 
-            @click="handleLogout"
-            class="px-4 py-2 text-gray-700 hover:text-red-600 transition">
-            <svg class="w-5 h-5 inline mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"></path>
-            </svg>
-            Logout
-          </button>
+          
+          
         </div>
       </div>
     </div>
@@ -234,21 +228,15 @@ const mockTransactions = ref([
 ])
 
 onMounted(async () => {
-  // For MVP, we'll use mock customer data
-  // In production, this would fetch from the backend
+  // Fetch current user if not already loaded
   if (!customerStore.customer) {
-    customerStore.setCustomer({
-      name: 'DCP-CUST-001',
-      first_name: 'John',
-      last_name: 'Doe',
-      email: 'john.doe@example.com',
-      phone: '+254712345678',
-      status: 'Active'
-    })
+    await customerStore.fetchCurrentUser()
   }
 
-  // Fetch customer loans
-  await loanStore.fetchLoans(customerStore.customer.name)
+  // Fetch customer loans only if we have a customer
+  if (customerStore.customer) {
+    await loanStore.fetchLoans(customerStore.customer.name)
+  }
 })
 
 const handlePayment = (loan) => {

@@ -12,19 +12,29 @@
 
           <!-- Desktop Navigation -->
           <div class="hidden md:flex items-center space-x-8">
-            <RouterLink to="/" class="text-gray-700 hover:text-green-600 font-medium transition">
-              Home
-            </RouterLink>
-            <RouterLink to="/dashboard" class="text-gray-700 hover:text-green-600 font-medium transition">
-              Dashboard
-            </RouterLink>
-            <RouterLink to="/apply" class="text-gray-700 hover:text-green-600 font-medium transition">
-              Apply
-            </RouterLink>
-            <RouterLink to="/about" class="text-gray-700 hover:text-green-600 font-medium transition">
-              About
-            </RouterLink>
-            <RouterLink to="/onboard" 
+            <template v-if="showNavLinks">
+              <RouterLink to="/" class="text-gray-700 hover:text-green-600 font-medium transition">
+                Home
+              </RouterLink>
+              <RouterLink to="/dashboard" class="text-gray-700 hover:text-green-600 font-medium transition">
+                Dashboard
+              </RouterLink>
+                <RouterLink v-if="!customerStore.isLoggedIn" to="/apply" class="text-gray-700 hover:text-green-600 font-medium transition">
+                Apply
+                </RouterLink>
+              <RouterLink to="/about" class="text-gray-700 hover:text-green-600 font-medium transition">
+                About
+              </RouterLink>
+            </template>
+
+            <button v-if="customerStore.isLoggedIn" @click="handleLogout" 
+              class="text-gray-700 hover:text-green-600 font-medium transition">
+              <svg class="w-5 h-5 inline mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"></path>
+            </svg>
+              Logout
+            </button>
+            <RouterLink v-else to="/onboard" 
               class="bg-green-600 text-white px-6 py-2 rounded-lg font-medium hover:bg-green-700 transition">
               Get Started
             </RouterLink>
@@ -41,19 +51,26 @@
         <!-- Mobile Menu -->
         <div v-if="mobileMenuOpen" class="md:hidden py-4 border-t">
           <div class="flex flex-col space-y-3">
-            <RouterLink @click="mobileMenuOpen = false" to="/" class="text-gray-700 hover:text-green-600 font-medium py-2">
-              Home
-            </RouterLink>
-            <RouterLink @click="mobileMenuOpen = false" to="/dashboard" class="text-gray-700 hover:text-green-600 font-medium py-2">
-              Dashboard
-            </RouterLink>
-            <RouterLink @click="mobileMenuOpen = false" to="/apply" class="text-gray-700 hover:text-green-600 font-medium py-2">
-              Apply for Loan
-            </RouterLink>
-            <RouterLink @click="mobileMenuOpen = false" to="/about" class="text-gray-700 hover:text-green-600 font-medium py-2">
-              About
-            </RouterLink>
-            <RouterLink @click="mobileMenuOpen = false" to="/onboard" 
+            <template v-if="showNavLinks">
+              <RouterLink @click="mobileMenuOpen = false" to="/" class="text-gray-700 hover:text-green-600 font-medium py-2">
+                Home
+              </RouterLink>
+              <RouterLink @click="mobileMenuOpen = false" to="/dashboard" class="text-gray-700 hover:text-green-600 font-medium py-2">
+                Dashboard
+              </RouterLink>
+              <RouterLink @click="mobileMenuOpen = false" to="/apply" class="text-gray-700 hover:text-green-600 font-medium py-2">
+                Apply for Loan
+              </RouterLink>
+              <RouterLink @click="mobileMenuOpen = false" to="/about" class="text-gray-700 hover:text-green-600 font-medium py-2">
+                About
+              </RouterLink>
+            </template>
+            
+            <button v-if="customerStore.isLoggedIn" @click="handleLogout(); mobileMenuOpen = false" 
+              class="text-left text-gray-700 hover:text-green-600 font-medium py-2">
+              Logout
+            </button>
+            <RouterLink v-else @click="mobileMenuOpen = false" to="/onboard" 
               class="bg-green-600 text-white px-6 py-2 rounded-lg font-medium text-center">
               Get Started
             </RouterLink>
@@ -69,15 +86,27 @@
 
 <script setup>
 import { ref, computed } from 'vue'
-import { RouterLink, RouterView, useRoute } from 'vue-router'
+import { RouterLink, RouterView, useRoute, useRouter } from 'vue-router'
+import { useCustomerStore } from './stores/customer'
 
 const mobileMenuOpen = ref(false)
 const route = useRoute()
+const router = useRouter()
+const customerStore = useCustomerStore()
 
 // Hide navigation on certain full-page routes
 const isFullPageRoute = computed(() => {
   return route.path === '/' || route.path === '/onboard'
 })
+
+const showNavLinks = computed(() => route.path !== '/dashboard')
+
+const handleLogout = async () => {
+  if (customerStore.logout) {
+    await customerStore.logout()
+  }
+  router.push('/onboard')
+}
 </script>
 
 <style scoped>
