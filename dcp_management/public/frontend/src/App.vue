@@ -34,10 +34,15 @@
             </svg>
               Logout
             </button>
-            <RouterLink v-else to="/onboard" 
-              class="bg-green-600 text-white px-6 py-2 rounded-lg font-medium hover:bg-green-700 transition">
-              Get Started
-            </RouterLink>
+            <div v-else class="flex items-center gap-4">
+              <RouterLink to="/login" class="text-gray-700 hover:text-green-600 font-medium transition">
+                Login
+              </RouterLink>
+              <RouterLink to="/onboard" 
+                class="bg-green-600 text-white px-6 py-2 rounded-lg font-medium hover:bg-green-700 transition">
+                Get Started
+              </RouterLink>
+            </div>
           </div>
 
           <!-- Mobile Menu Button -->
@@ -70,10 +75,15 @@
               class="text-left text-gray-700 hover:text-green-600 font-medium py-2">
               Logout
             </button>
-            <RouterLink v-else @click="mobileMenuOpen = false" to="/onboard" 
-              class="bg-green-600 text-white px-6 py-2 rounded-lg font-medium text-center">
-              Get Started
-            </RouterLink>
+            <template v-else>
+              <RouterLink @click="mobileMenuOpen = false" to="/login" class="text-gray-700 hover:text-green-600 font-medium py-2">
+                Login
+              </RouterLink>
+              <RouterLink @click="mobileMenuOpen = false" to="/onboard" 
+                class="bg-green-600 text-white px-6 py-2 rounded-lg font-medium text-center">
+                Get Started
+              </RouterLink>
+            </template>
           </div>
         </div>
       </nav>
@@ -88,6 +98,7 @@
 import { ref, computed } from 'vue'
 import { RouterLink, RouterView, useRoute, useRouter } from 'vue-router'
 import { useCustomerStore } from './stores/customer'
+import { logout } from './api'
 
 const mobileMenuOpen = ref(false)
 const route = useRoute()
@@ -96,16 +107,20 @@ const customerStore = useCustomerStore()
 
 // Hide navigation on certain full-page routes
 const isFullPageRoute = computed(() => {
-  return route.path === '/' || route.path === '/onboard'
+  return route.path === '/onboard'
 })
 
 const showNavLinks = computed(() => route.path !== '/dashboard')
 
 const handleLogout = async () => {
-  if (customerStore.logout) {
-    await customerStore.logout()
-  }
-  router.push('/onboard')
+  // Call explicit logout function
+  await logout()
+  
+  // Clear local store
+  customerStore.logout()
+  
+  // Force full page reload to clear any memory/state
+  window.location.href = '/portal#/onboard'
 }
 </script>
 

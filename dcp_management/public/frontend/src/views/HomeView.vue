@@ -4,22 +4,22 @@
     <section class="relative overflow-hidden">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <div class="text-center">
-          <h1 class="text-5xl md:text-6xl font-extrabold text-gray-900 mb-6">
-            Fast & Simple Loans
-            <span class="block text-green-600 mt-2">Anytime, Anywhere</span>
+          <h1 class="text-5xl md:text-6xl font-extrabold text-gray-900 mb-6 fade-in-up">
+            Fast, Fair &
+            <span class="block text-green-600 mt-2">County-Focused Loans</span>
           </h1>
-          <p class="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
-            Get instant access to digital loans from KES 1,000 to KES 100,000.
-            100% online. No paperwork. CBK licensed.
+          <p class="text-xl text-gray-600 mb-8 max-w-2xl mx-auto fade-in-up delay-100">
+            Empowering county employees and residents with instant access to credit. 
+            From KES 1,000 to KES 100,000. 100% online. No paperwork.
           </p>
-          <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <div class="flex flex-col sm:flex-row gap-4 justify-center fade-in-up delay-200">
             <RouterLink to="/onboard" 
               class="bg-green-600 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-green-700 transition shadow-lg hover:shadow-xl">
               Get Started Now
             </RouterLink>
-            <RouterLink to="/apply" 
+            <RouterLink to="/login" 
               class="bg-white text-green-600 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-50 transition border-2 border-green-600">
-              Apply for Loan
+              Client Login
             </RouterLink>
           </div>
         </div>
@@ -29,7 +29,7 @@
     <!-- Features Section -->
     <section class="py-16 bg-white">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 class="text-3xl font-bold text-center text-gray-900 mb-12">Why Choose Us?</h2>
+        <h2 class="text-3xl font-bold text-center text-gray-900 mb-12">Why Choose County Lending?</h2>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div class="text-center p-6">
             <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">

@@ -10,7 +10,7 @@ export const db = frappe.db()
 export const auth = frappe.auth()
 
 // Get CSRF token from cookies
-const getCsrfToken = () => {
+export const getCsrfToken = () => {
   const cookies = document.cookie.split(';')
   for (let cookie of cookies) {
     const [name, value] = cookie.trim().split('=')
@@ -19,6 +19,21 @@ const getCsrfToken = () => {
     }
   }
   return null
+}
+
+export const logout = async () => {
+  const csrfToken = getCsrfToken()
+  try {
+    await fetch('/api/method/logout', {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'X-Frappe-CSRF-Token': csrfToken || ''
+      }
+    })
+  } catch (e) {
+    console.warn('Logout request failed', e)
+  }
 }
 
 // Legacy API wrapper for backward compatibility
