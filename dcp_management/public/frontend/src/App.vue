@@ -6,8 +6,8 @@
         <div class="flex justify-between items-center h-16">
           <!-- Logo -->
           <RouterLink to="/" class="flex items-center">
-            <span class="text-2xl font-bold text-green-600">County</span>
-            <span class="text-gray-700 ml-2 hidden sm:inline">Lending</span>
+            <span class="text-2xl font-bold text-green-600">Jirani</span>
+            <span class="text-gray-700 ml-2 hidden sm:inline">Credit</span>
           </RouterLink>
 
           <!-- Desktop Navigation -->

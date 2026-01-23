@@ -6,10 +6,10 @@
         <div class="text-center">
           <h1 class="text-5xl md:text-6xl font-extrabold text-gray-900 mb-6 fade-in-up">
             Fast, Fair &
-            <span class="block text-green-600 mt-2">County-Focused Loans</span>
+            <span class="block text-green-600 mt-2">Reliable Loans</span>
           </h1>
           <p class="text-xl text-gray-600 mb-8 max-w-2xl mx-auto fade-in-up delay-100">
-            Empowering county employees and residents with instant access to credit. 
+            Empowering employees and residents with instant access to credit. 
             From KES 1,000 to KES 100,000. 100% online. No paperwork.
           </p>
           <div class="flex flex-col sm:flex-row gap-4 justify-center fade-in-up delay-200">
@@ -29,7 +29,7 @@
     <!-- Features Section -->
     <section class="py-16 bg-white">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 class="text-3xl font-bold text-center text-gray-900 mb-12">Why Choose County Lending?</h2>
+        <h2 class="text-3xl font-bold text-center text-gray-900 mb-12">Why Choose Jirani Credit?</h2>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div class="text-center p-6">
             <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
@@ -108,7 +108,7 @@
     <!-- Footer -->
     <footer class="bg-gray-900 text-gray-400 py-8">
       <div class="max-w-7xl mx-auto px-4 text-center">
-        <p class="text-sm">&copy; 2026 County Lending. Licensed by Central Bank of Kenya.</p>
+        <p class="text-sm">&copy; 2026 Jirani Credit. Licensed by Central Bank of Kenya.</p>
         <p class="text-xs mt-2">Terms & Conditions | Privacy Policy | Contact Support</p>
       </div>
     </footer>

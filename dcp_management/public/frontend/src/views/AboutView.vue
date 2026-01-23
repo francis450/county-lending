@@ -4,7 +4,7 @@
     <section class="bg-white shadow-sm">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div class="text-center">
-          <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">About County Lending</h1>
+          <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">About Jirani Credit</h1>
           <p class="text-xl text-gray-600 max-w-3xl mx-auto">
             Empowering Kenyans with fast, transparent, and accessible digital loans
           </p>
@@ -54,7 +54,7 @@
         <h2 class="text-3xl font-bold text-gray-900 mb-8 text-center">Our Story</h2>
         <div class="prose prose-lg mx-auto text-gray-600">
           <p class="mb-4">
-            County Lending was founded in 2025 with a simple goal: make borrowing simple, fast, 
+            Jirani Credit was founded in 2025 with a simple goal: make borrowing simple, fast, 
             and transparent for every Kenyan. We recognized that traditional banking systems often 
             left out the very people who needed financial assistance the most.
           </p>
@@ -160,11 +160,11 @@
             </svg>
             Call: +254 700 000 000
           </a>
-          <a href="mailto:support@countylending.co.ke" class="inline-flex items-center justify-center bg-white text-gray-900 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition">
+          <a href="mailto:support@jiranicredit.co.ke" class="inline-flex items-center justify-center bg-white text-gray-900 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition">
             <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
             </svg>
-            support@countylending.co.ke
+            support@jiranicredit.co.ke
           </a>
         </div>
       </div>
@@ -173,5 +173,5 @@
 </template>
 
 <script setup>
-// About page for County Lending
+// About page for Jirani Credit
 </script>
