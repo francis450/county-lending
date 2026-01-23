@@ -52,7 +52,6 @@ app_license = "mit"
 # ------------------
 website_route_rules = [
 	{"from_route": "/portal", "to_route": "portal"},
-	{"from_route": "/login", "to_route": "dcp_management/www/dcp_login_redirect"},
 ]
 
 
