@@ -162,6 +162,12 @@
             <FileUploadField label="KRA PIN Certificate *" v-model="files.kra_certificate" :refName="'kraInput'" accept=".pdf,image/*" />
             <!-- Passport Photo -->
             <FileUploadField label="Passport Photo *" v-model="files.passport_photo" :refName="'ppInput'" />
+            <!-- 3-Months Recent Payslip -->
+            <FileUploadField label="3-Months Recent Payslip *" v-model="files.payslip" :refName="'payslipInput'" accept=".pdf,image/*" />
+            <!-- 2-Months Recent MPesa Statement -->
+            <FileUploadField label="2-Months Recent MPesa Statement *" v-model="files.mpesa_statement" :refName="'mpesaInput'" accept=".pdf,image/*" />
+            <!-- 2-Months Recent Bank Statement -->
+            <FileUploadField label="2-Months Recent Bank Statement *" v-model="files.bank_statement" :refName="'bankInput'" accept=".pdf,image/*" />
             
           </div>
 
@@ -210,7 +216,10 @@ const files = reactive({
   id_front: null,
   id_back: null,
   kra_certificate: null,
-  passport_photo: null
+  passport_photo: null,
+  payslip: null,
+  mpesa_statement: null,
+  bank_statement: null
 })
 
 const stepTitle = computed(() => {
@@ -292,7 +301,7 @@ const nextStep = () => {
 
 const submitKYC = async () => {
     // Validate Step 3
-    if (!files.id_front || !files.id_back || !files.kra_certificate || !files.passport_photo) {
+    if (!files.id_front || !files.id_back || !files.kra_certificate || !files.passport_photo || !files.payslip || !files.mpesa_statement || !files.bank_statement) {
       errorMessage.value = "Please upload all required documents."
       return
     }
@@ -308,7 +317,7 @@ const submitKYC = async () => {
     try {
         // 1. Upload Files
         const fileUploads = {}
-        const keys = ['id_front', 'id_back', 'kra_certificate', 'passport_photo']
+        const keys = ['id_front', 'id_back', 'kra_certificate', 'passport_photo', 'payslip', 'mpesa_statement', 'bank_statement']
         
         for (const key of keys) {
             const formData = new FormData()
@@ -363,7 +372,10 @@ const mapFieldToDocField = (key) => {
         'id_front': 'national_id_front',
         'id_back': 'national_id_back',
         'kra_certificate': 'kra_pin_certificate',
-        'passport_photo': 'passport_photo'
+        'passport_photo': 'passport_photo',
+        'payslip': 'payslip',
+        'mpesa_statement': 'mpesa_statement',
+        'bank_statement': 'bank_statement'
     }
     return map[key]
 }

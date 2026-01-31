@@ -27,6 +27,9 @@
   "kra_pin",
   "kra_pin_certificate",
   "passport_photo",
+  "payslip",
+  "mpesa_statement",
+  "bank_statement",
   "address_section",
   "residential_address",
   "county",
@@ -165,6 +168,21 @@
    "fieldname": "passport_photo",
    "fieldtype": "Attach Image",
    "label": "Passport Photo"
+  },
+  {
+   "fieldname": "payslip",
+   "fieldtype": "Attach",
+   "label": "3-Months Recent Payslip"
+  },
+  {
+   "fieldname": "mpesa_statement",
+   "fieldtype": "Attach",
+   "label": "2-Months Recent MPesa Statement"
+  },
+  {
+   "fieldname": "bank_statement",
+   "fieldtype": "Attach",
+   "label": "2-Months Recent Bank Statement"
   },
   {
    "fieldname": "address_section",
