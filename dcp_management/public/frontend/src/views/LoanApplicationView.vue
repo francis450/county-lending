@@ -152,7 +152,7 @@
         <!-- Info/Stats Column (Simplified from original) -->
         <div class="hidden md:block">
              <div class="bg-green-900 text-white rounded-2xl p-8 mb-8">
-            <h3 class="text-xl font-bold mb-4">Why County Lending?</h3>
+            <h3 class="text-xl font-bold mb-4">Why Jirani Credit?</h3>
             <ul class="space-y-4">
               <li class="flex items-center">
                 <svg class="w-6 h-6 mr-3 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
