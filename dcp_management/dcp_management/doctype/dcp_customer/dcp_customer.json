@@ -19,6 +19,9 @@
   "kyc_verified_date",
   "column_break_kyc",
   "verified_by",
+  "ai_verification_section",
+  "run_ai_verification",
+  "ai_verification_summary",
   "kyc_documents_section",
   "national_id",
   "national_id_front",
@@ -125,6 +128,22 @@
    "fieldtype": "Link",
    "label": "Verified By",
    "options": "User",
+   "read_only": 1
+  },
+  {
+   "fieldname": "ai_verification_section",
+   "fieldtype": "Section Break",
+   "label": "AI Document Verification"
+  },
+  {
+   "fieldname": "run_ai_verification",
+   "fieldtype": "Button",
+   "label": "Run AI Verification"
+  },
+  {
+   "fieldname": "ai_verification_summary",
+   "fieldtype": "Text Editor",
+   "label": "AI Verification Summary",
    "read_only": 1
   },
   {

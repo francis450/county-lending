@@ -1,177 +1,136 @@
 <template>
-  <div class="min-h-screen bg-gradient-to-br from-blue-50 to-green-50">
-    <!-- Header -->
-    <section class="bg-white shadow-sm">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div class="text-center">
-          <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">About Jirani Credit</h1>
-          <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-            Empowering Kenyans with fast, transparent, and accessible digital loans
-          </p>
-        </div>
-      </div>
-    </section>
+  <div class="min-h-screen bg-white">
 
-    <!-- Mission & Vision -->
-    <section class="py-16">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="grid md:grid-cols-2 gap-12">
-          <div class="bg-white rounded-2xl shadow-lg p-8">
-            <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-6">
-              <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
-              </svg>
-            </div>
-            <h2 class="text-2xl font-bold text-gray-900 mb-4">Our Mission</h2>
-            <p class="text-gray-600 leading-relaxed">
-              To provide instant, accessible, and fair digital credit solutions to all Kenyans, 
-              regardless of their financial history. We believe everyone deserves a chance to 
-              achieve their financial goals.
-            </p>
-          </div>
-
-          <div class="bg-white rounded-2xl shadow-lg p-8">
-            <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-6">
-              <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
-              </svg>
-            </div>
-            <h2 class="text-2xl font-bold text-gray-900 mb-4">Our Vision</h2>
-            <p class="text-gray-600 leading-relaxed">
-              To become Kenya's most trusted digital lending platform, known for transparency, 
-              speed, and customer-first approach. We aim to revolutionize how Kenyans access 
-              financial services.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Company Story -->
-    <section class="py-16 bg-white">
-      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 class="text-3xl font-bold text-gray-900 mb-8 text-center">Our Story</h2>
-        <div class="prose prose-lg mx-auto text-gray-600">
-          <p class="mb-4">
-            Jirani Credit was founded in 2025 with a simple goal: make borrowing simple, fast, 
-            and transparent for every Kenyan. We recognized that traditional banking systems often 
-            left out the very people who needed financial assistance the most.
-          </p>
-          <p class="mb-4">
-            Today, we're proud to be a fully licensed Digital Credit Provider under the Central Bank 
-            of Kenya, serving thousands of customers across the country. Our technology-driven approach 
-            means you can apply for a loan anytime, anywhere, and get a decision in minutes.
-          </p>
-          <p>
-            We're committed to responsible lending practices, transparent pricing, and putting our 
-            customers first in everything we do.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Key Stats -->
-    <section class="py-16 bg-green-600 text-white">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-          <div>
-            <div class="text-4xl md:text-5xl font-bold mb-2">5,000+</div>
-            <div class="text-green-100">Happy Customers</div>
-          </div>
-          <div>
-            <div class="text-4xl md:text-5xl font-bold mb-2">KES 50M+</div>
-            <div class="text-green-100">Loans Disbursed</div>
-          </div>
-          <div>
-            <div class="text-4xl md:text-5xl font-bold mb-2">98%</div>
-            <div class="text-green-100">Satisfaction Rate</div>
-          </div>
-          <div>
-            <div class="text-4xl md:text-5xl font-bold mb-2">24/7</div>
-            <div class="text-green-100">Support Available</div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Regulatory Compliance -->
-    <section class="py-16">
-      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="bg-white rounded-2xl shadow-lg p-8">
-          <h2 class="text-2xl font-bold text-gray-900 mb-6 text-center">Regulatory Compliance</h2>
-          <div class="space-y-4">
-            <div class="flex items-start">
-              <div class="flex-shrink-0">
-                <svg class="h-6 w-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                </svg>
-              </div>
-              <p class="ml-3 text-gray-600">
-                <strong>Licensed by Central Bank of Kenya (CBK)</strong> - We operate under strict regulatory oversight
-              </p>
-            </div>
-            <div class="flex items-start">
-              <div class="flex-shrink-0">
-                <svg class="h-6 w-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                </svg>
-              </div>
-              <p class="ml-3 text-gray-600">
-                <strong>Transparent Pricing</strong> - All fees and interest rates are clearly disclosed before you borrow
-              </p>
-            </div>
-            <div class="flex items-start">
-              <div class="flex-shrink-0">
-                <svg class="h-6 w-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                </svg>
-              </div>
-              <p class="ml-3 text-gray-600">
-                <strong>Data Protection</strong> - Your personal information is encrypted and protected under Kenya's Data Protection Act
-              </p>
-            </div>
-            <div class="flex items-start">
-              <div class="flex-shrink-0">
-                <svg class="h-6 w-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                </svg>
-              </div>
-              <p class="ml-3 text-gray-600">
-                <strong>Responsible Lending</strong> - We assess affordability to ensure you can comfortably repay your loan
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Contact CTA -->
-    <section class="py-16 bg-gray-900 text-white">
-      <div class="max-w-4xl mx-auto text-center px-4">
-        <h2 class="text-3xl font-bold mb-4">Have Questions?</h2>
-        <p class="text-xl mb-8 text-gray-300">
-          Our customer support team is here to help you 24/7
+    <!-- HERO -->
+    <section class="relative py-20 lg:py-28 bg-gradient-to-b from-trust-green-light to-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h1 class="trust-heading text-4xl md:text-5xl mb-6 fade-in-up">Empowering Kenya's Workforce<br/>Since 2016</h1>
+        <p class="trust-subheading mx-auto fade-in-up delay-100">
+          Jirani Credit is a licensed micro-credit institution dedicated to fighting poverty through innovative financial services for employed Kenyans.
         </p>
-        <div class="flex flex-col sm:flex-row gap-4 justify-center">
-          <a href="tel:+254700000000" class="inline-flex items-center justify-center bg-green-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-green-700 transition">
-            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
-            </svg>
-            Call: +254 700 000 000
-          </a>
-          <a href="mailto:support@jiranicredit.co.ke" class="inline-flex items-center justify-center bg-white text-gray-900 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition">
-            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
-            </svg>
-            support@jiranicredit.co.ke
-          </a>
+      </div>
+    </section>
+
+    <!-- OUR STORY -->
+    <section class="py-20">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <div>
+            <h2 class="section-heading mb-4 text-trust-green">Our Story</h2>
+            <h3 class="trust-heading text-3xl mb-6">Your Neighbor in Financial Growth</h3>
+            <div class="space-y-4 text-soft-grey leading-relaxed">
+              <p>Jirani Credit was founded with a simple yet powerful vision: to provide accessible, transparent, and fair financial services to Kenya's hardworking employees. In Swahili, "Jirani" means neighbor — and that's exactly what we strive to be.</p>
+              <p>We understand the daily challenges that Kenyan workers face — from school fees and medical emergencies to business opportunities that can't wait. Traditional banks often leave employees behind with slow processes and stringent collateral requirements.</p>
+              <p>That's why we built Jirani Credit — a digital-first micro-credit institution that uses cutting-edge AI technology to provide fast, fair, and transparent salary-based loans. Our DeepSeek AI verification ensures your documents are processed in minutes, not days.</p>
+              <p>Today, we serve thousands of customers across Nairobi and beyond, with a growing network of employer partnerships and a commitment to financial inclusion.</p>
+            </div>
+          </div>
+          <div class="bg-vapor-grey p-8 border-2 border-ink-black shadow-hard-lg">
+            <div class="space-y-6">
+              <div class="flex items-start gap-4">
+                <div class="w-12 h-12 bg-trust-green flex items-center justify-center flex-shrink-0">
+                  <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                </div>
+                <div>
+                  <h4 class="font-black text-lg">Transparency</h4>
+                  <p class="text-soft-grey text-sm">No hidden fees. Clear interest rates. You always know what you're paying.</p>
+                </div>
+              </div>
+              <div class="flex items-start gap-4">
+                <div class="w-12 h-12 bg-trust-green flex items-center justify-center flex-shrink-0">
+                  <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z"/></svg>
+                </div>
+                <div>
+                  <h4 class="font-black text-lg">Inclusion</h4>
+                  <p class="text-soft-grey text-sm">We serve employees in underserved areas where traditional banking falls short.</p>
+                </div>
+              </div>
+              <div class="flex items-start gap-4">
+                <div class="w-12 h-12 bg-trust-green flex items-center justify-center flex-shrink-0">
+                  <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z"/></svg>
+                </div>
+                <div>
+                  <h4 class="font-black text-lg">Innovation</h4>
+                  <p class="text-soft-grey text-sm">AI-powered verification, M-Pesa integration, and digital-first approach.</p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
+    </section>
+
+    <!-- MILESTONES -->
+    <section class="py-20 bg-vapor-grey border-t border-gray-200">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <h2 class="trust-heading mb-4">Our Journey</h2>
+          <p class="trust-subheading mx-auto">Key milestones in our mission to empower Kenya's workforce.</p>
+        </div>
+        <div class="max-w-3xl mx-auto">
+          <div v-for="(m, i) in milestones" :key="i" class="flex gap-6 mb-8 last:mb-0">
+            <div class="flex flex-col items-center">
+              <div class="w-12 h-12 bg-trust-green text-white rounded-full flex items-center justify-center font-black text-sm flex-shrink-0">
+                {{ m.year }}
+              </div>
+              <div v-if="i < milestones.length - 1" class="w-0.5 flex-1 bg-trust-green/20 mt-2"></div>
+            </div>
+            <div class="pb-8">
+              <h4 class="font-black text-lg mb-1">{{ m.title }}</h4>
+              <p class="text-soft-grey text-sm leading-relaxed">{{ m.desc }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PARTNERSHIPS -->
+    <section class="py-16 bg-white border-t border-gray-200">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="section-heading mb-12 text-soft-grey">Our Partners &amp; Integrations</h2>
+        <div class="flex flex-wrap justify-center items-center gap-16">
+          <div class="text-center">
+            <div class="text-3xl font-black text-trust-green mb-1">M-Pesa</div>
+            <div class="text-xs text-soft-grey">Disbursement & Repayment</div>
+          </div>
+          <div class="text-center">
+            <div class="text-3xl font-black text-deepseek-blue mb-1">DeepSeek</div>
+            <div class="text-xs text-soft-grey">AI Verification</div>
+          </div>
+          <div class="text-center">
+            <div class="text-3xl font-black text-ink-black mb-1">CBK</div>
+            <div class="text-xs text-soft-grey">Regulatory Compliance</div>
+          </div>
+          <div class="text-center">
+            <div class="text-3xl font-black text-ink-black mb-1">CRB</div>
+            <div class="text-xs text-soft-grey">Credit Reporting</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-20 bg-trust-green">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-3xl md:text-4xl font-black text-white mb-6">Ready to Boost Your Finances?</h2>
+        <p class="text-white/80 text-lg mb-10">Join thousands of Kenyan employees who trust Jirani Credit for their financial needs.</p>
+        <RouterLink to="/apply" class="bg-white text-trust-green px-10 py-4 font-black text-sm uppercase tracking-widest hover:bg-ink-black hover:text-watch-green transition-all shadow-hard-md inline-block">
+          Apply Now
+        </RouterLink>
       </div>
     </section>
   </div>
 </template>
 
 <script setup>
-// About page for Jirani Credit
+import { RouterLink } from 'vue-router';
+
+const milestones = [
+  { year: '16', title: 'Founded in Nairobi', desc: 'Jirani Credit was established as a micro-credit institution focused on employee-based lending in Kenya.' },
+  { year: '18', title: 'M-Pesa Integration', desc: 'Integrated with Safaricom M-Pesa for seamless loan disbursement and repayment.' },
+  { year: '20', title: '1,000+ Customers', desc: 'Reached our first major milestone, serving over 1,000 employed Kenyans across Nairobi.' },
+  { year: '24', title: 'CBK Full Licensing', desc: 'Achieved full licensing under the Central Bank of Kenya regulatory framework.' },
+  { year: '25', title: 'AI Verification Launch', desc: 'Integrated DeepSeek AI for automated document verification — OCR for payslips, statement analysis.' },
+  { year: '26', title: 'Digital Platform 2.0', desc: 'Launched our new digital platform with enhanced security, CRB integration, and real-time processing.' },
+];
 </script>

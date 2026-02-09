@@ -4,11 +4,60 @@ import { auth } from '../api'
 
 const router = createRouter({
   history: createWebHashHistory(),
+  scrollBehavior(to, from, savedPosition) {
+    if (savedPosition) return savedPosition
+    return { top: 0 }
+  },
   routes: [
     {
       path: '/',
       name: 'home',
       component: HomeView
+    },
+    {
+      path: '/about',
+      name: 'about',
+      component: () => import('../views/AboutView.vue')
+    },
+    {
+      path: '/services',
+      name: 'services',
+      component: () => import('../views/ServicesView.vue')
+    },
+    {
+      path: '/eligibility',
+      name: 'eligibility',
+      component: () => import('../views/EligibilityView.vue')
+    },
+    {
+      path: '/how-to-apply',
+      name: 'how-to-apply',
+      component: () => import('../views/HowToApplyView.vue')
+    },
+    {
+      path: '/faq',
+      name: 'faq',
+      component: () => import('../views/FAQView.vue')
+    },
+    {
+      path: '/blog',
+      name: 'blog',
+      component: () => import('../views/BlogView.vue')
+    },
+    {
+      path: '/contact',
+      name: 'contact',
+      component: () => import('../views/ContactView.vue')
+    },
+    {
+      path: '/privacy',
+      name: 'privacy',
+      component: () => import('../views/PrivacyView.vue')
+    },
+    {
+      path: '/terms',
+      name: 'terms',
+      component: () => import('../views/TermsView.vue')
     },
     {
       path: '/dashboard',
@@ -39,9 +88,10 @@ const router = createRouter({
       component: () => import('../views/CheckEmailView.vue')
     },
     {
-      path: '/about',
-      name: 'about',
-      component: () => import('../views/AboutView.vue')
+      path: '/admin',
+      name: 'admin',
+      component: () => import('../views/AdminReviewView.vue'),
+      meta: { requiresAuth: true }
     },
     {
       path: '/login',

@@ -1,0 +1,92 @@
+<template>
+  <div class="min-h-screen bg-white font-inter text-ink-black">
+    <!-- Header -->
+    <section class="border-b-2 border-ink-black">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div class="text-center">
+          <h1 class="text-4xl md:text-5xl font-black uppercase tracking-tight mb-4">About Jirani Credit</h1>
+          <p class="text-lg text-ink-black/50 max-w-3xl mx-auto">
+            Empowering Kenyan professionals with fast, transparent, and accessible digital loans.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Mission & Vision -->
+    <section class="py-16 bg-vapor-grey">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid md:grid-cols-2 gap-8">
+          <div class="paper-card">
+            <div class="w-14 h-14 bg-watch-green flex items-center justify-center mb-6">
+              <svg class="w-7 h-7 text-ink-black" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+              </svg>
+            </div>
+            <h2 class="text-2xl font-black uppercase mb-4">Our Mission</h2>
+            <p class="text-ink-black/60 leading-relaxed">
+              To provide instant, accessible, and fair digital credit solutions to all employed Kenyans.
+              We believe every qualified professional deserves a chance to achieve their financial goals.
+            </p>
+          </div>
+
+          <div class="paper-card">
+            <div class="w-14 h-14 bg-deepseek-blue flex items-center justify-center mb-6">
+              <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                <path stroke-linecap="round" stroke-linejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+              </svg>
+            </div>
+            <h2 class="text-2xl font-black uppercase mb-4">Our Vision</h2>
+            <p class="text-ink-black/60 leading-relaxed">
+              To become Kenya's most trusted digital lending platform, known for transparency,
+              speed, AI-powered verification, and a customer-first approach.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="py-16 border-t-2 border-ink-black">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="section-heading text-center mb-12">How It Works</h2>
+        <div class="grid md:grid-cols-3 gap-8">
+          <div class="text-center">
+            <div class="w-16 h-16 border-2 border-ink-black bg-watch-green flex items-center justify-center mx-auto mb-4 text-2xl font-black">1</div>
+            <h3 class="font-black uppercase mb-2">Upload Documents</h3>
+            <p class="text-sm text-ink-black/50">Submit your payslips, M-Pesa, and bank statements through our secure portal.</p>
+          </div>
+          <div class="text-center">
+            <div class="w-16 h-16 border-2 border-ink-black bg-deepseek-blue text-white flex items-center justify-center mx-auto mb-4 text-2xl font-black">2</div>
+            <h3 class="font-black uppercase mb-2">AI Verification</h3>
+            <p class="text-sm text-ink-black/50">DeepSeek AI verifies your income, employer, and document authenticity in seconds.</p>
+          </div>
+          <div class="text-center">
+            <div class="w-16 h-16 border-2 border-ink-black bg-watch-green flex items-center justify-center mx-auto mb-4 text-2xl font-black">3</div>
+            <h3 class="font-black uppercase mb-2">Get Funded</h3>
+            <p class="text-sm text-ink-black/50">Approved loans are disbursed directly to your M-Pesa within minutes.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Compliance -->
+    <section class="py-16 bg-vapor-grey border-t-2 border-ink-black">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="section-heading mb-8">Compliance &amp; Security</h2>
+        <div class="flex flex-wrap justify-center gap-4">
+          <div class="badge-encrypted">CBK Licensed</div>
+          <div class="badge-encrypted">ODPC Compliant</div>
+          <div class="badge-encrypted">AES-256 Encrypted</div>
+          <div class="badge-encrypted">DeepSeek AI Verified</div>
+        </div>
+        <a href="#" class="text-[10px] text-deepseek-blue font-black uppercase tracking-widest mt-6 inline-block hover:underline">
+          How we delete your data after verification
+        </a>
+      </div>
+    </section>
+  </div>
+</template>
+
+<script setup>
+</script>

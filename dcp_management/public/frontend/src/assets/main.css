@@ -2,19 +2,191 @@
 @tailwind components;
 @tailwind utilities;
 
+/* === Jirani Credit v4.0 — Trust & Growth Design System === */
+
+@layer base {
+  body {
+    @apply bg-white text-ink-black font-inter antialiased;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  ::selection {
+    background-color: #39FF14;
+    color: #000;
+  }
+
+  /* Input base styles */
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  input[type="password"],
+  input[type="number"],
+  textarea,
+  select {
+    @apply bg-white border-0 border-b-2 border-ink-black rounded-none px-0 py-3 text-ink-black font-semibold focus:border-watch-green focus:ring-0 outline-none transition-colors;
+  }
+
+  input[type="checkbox"] {
+    @apply w-5 h-5 border-2 border-ink-black rounded-sm bg-white cursor-pointer accent-watch-green;
+  }
+
+  /* Smooth scrolling */
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  /* Primary CTA — Neon Green */
+  .btn-primary {
+    @apply bg-watch-green text-ink-black px-10 py-4 font-black text-xs uppercase tracking-[0.2em]
+           shadow-hard-md hover:shadow-hard-lg active:shadow-none active:translate-x-[4px] active:translate-y-[4px]
+           transition-all duration-150;
+  }
+
+  /* Trust CTA — Softer green for trust pages */
+  .btn-trust {
+    @apply bg-trust-green text-white px-8 py-4 rounded-xl font-bold text-sm
+           hover:bg-trust-green-dark shadow-soft hover:shadow-card-hover
+           transition-all duration-200;
+  }
+
+  .btn-trust-outline {
+    @apply bg-white text-trust-green px-8 py-4 rounded-xl font-bold text-sm
+           border-2 border-trust-green hover:bg-trust-green-light
+           transition-all duration-200;
+  }
+
+  /* Secondary / Reject button */
+  .btn-outline-danger {
+    @apply bg-white text-ink-black px-8 py-3 border-2 border-alert-magenta font-bold text-xs uppercase tracking-widest
+           hover:bg-alert-magenta hover:text-white transition-all;
+  }
+
+  /* Paper card — brutalist style */
+  .paper-card {
+    @apply bg-white border-2 border-ink-black p-8 relative;
+    box-shadow: 6px 6px 0 0 #000;
+  }
+
+  /* Trust card — softer style for info pages */
+  .trust-card {
+    @apply bg-white rounded-2xl p-8 shadow-card hover:shadow-card-hover transition-all duration-300 border border-gray-100;
+  }
+
+  /* Section heading — stamped style */
+  .section-heading {
+    @apply text-xs font-black text-ink-black uppercase tracking-[0.25em];
+  }
+
+  /* Trust section heading */
+  .trust-heading {
+    @apply text-3xl md:text-4xl font-black text-ink-black leading-tight;
+  }
+
+  .trust-subheading {
+    @apply text-lg text-soft-grey leading-relaxed max-w-2xl;
+  }
+
+  /* Badge styles */
+  .badge-encrypted {
+    @apply inline-flex items-center gap-2 border-2 border-ink-black bg-white text-ink-black text-[10px] font-black uppercase tracking-widest px-3 py-1;
+  }
+
+  .badge-trust {
+    @apply inline-flex items-center gap-2 bg-trust-green-light text-trust-green text-xs font-bold px-4 py-2 rounded-full;
+  }
+
+  /* Status pills */
+  .status-approved {
+    @apply bg-watch-green text-ink-black text-[10px] font-black uppercase px-3 py-1;
+  }
+  .status-pending {
+    @apply bg-deepseek-blue text-white text-[10px] font-black uppercase px-3 py-1;
+  }
+  .status-rejected {
+    @apply bg-alert-magenta text-white text-[10px] font-black uppercase px-3 py-1;
+  }
+
+  /* Accordion */
+  .accordion-item {
+    @apply border border-gray-200 rounded-xl overflow-hidden transition-all duration-200;
+  }
+  .accordion-item.active {
+    @apply border-trust-green shadow-soft;
+  }
+  .accordion-trigger {
+    @apply w-full flex justify-between items-center p-5 text-left font-bold text-ink-black hover:bg-light-grey transition-colors;
+  }
+  .accordion-content {
+    @apply px-5 pb-5 text-soft-grey leading-relaxed;
+  }
+
+  /* Step indicator */
+  .step-circle {
+    @apply w-12 h-12 rounded-full flex items-center justify-center font-black text-lg;
+  }
+  .step-circle.active {
+    @apply bg-trust-green text-white;
+  }
+  .step-circle.completed {
+    @apply bg-watch-green text-ink-black;
+  }
+  .step-circle.pending {
+    @apply bg-gray-200 text-soft-grey;
+  }
+}
+
+/* Animations */
 .fade-in-up {
   animation: fadeInUp 0.8s ease-out forwards;
   opacity: 0;
   transform: translateY(20px);
 }
-
 .delay-100 { animation-delay: 0.1s; }
 .delay-200 { animation-delay: 0.2s; }
 .delay-300 { animation-delay: 0.3s; }
+.delay-400 { animation-delay: 0.4s; }
+.delay-500 { animation-delay: 0.5s; }
 
 @keyframes fadeInUp {
   to {
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+@keyframes scanLine {
+  0%   { transform: translateY(-100%); }
+  100% { transform: translateY(500px); }
+}
+.animate-scan {
+  animation: scanLine 3s linear infinite;
+}
+
+/* Slide transition */
+.slide-enter-active,
+.slide-leave-active {
+  transition: max-height 0.3s ease, opacity 0.3s ease;
+  overflow: hidden;
+}
+.slide-enter-from,
+.slide-leave-to {
+  max-height: 0;
+  opacity: 0;
+}
+.slide-enter-to,
+.slide-leave-from {
+  max-height: 500px;
+  opacity: 1;
+}
+
+/* Neon green checklist line animation */
+@keyframes checkDraw {
+  from { width: 0; }
+  to   { width: 100%; }
+}
+.animate-check-line {
+  animation: checkDraw 1.2s ease-out forwards;
 }

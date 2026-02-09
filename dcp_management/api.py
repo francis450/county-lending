@@ -3,6 +3,50 @@ import os
 from frappe import _
 from frappe.utils import now, get_datetime
 
+@frappe.whitelist()
+def get_admin_application_queue():
+	"""
+	Returns a list of loan applications for the admin cockpit.
+	Mocked sorting by AI Confidence Score.
+	"""
+	# Check for Reviewer role
+	# if "Reviewer" not in frappe.get_roles(frappe.session.user):
+	# 	frappe.throw(_("Access Denied: Reviever role required"))
+
+	# This is a mock implementation. We'll simulate some applications.
+	return [
+		{
+			"name": "LA-2026-0001",
+			"customer_name": "James Kamau",
+			"loan_amount": 50000,
+			"ai_score": 98,
+			"detected_salary": 45000,
+			"status": "AI Verified",
+			"creation": "2026-02-09 10:30:00",
+			"flags": []
+		},
+		{
+			"name": "LA-2026-0002",
+			"customer_name": "Sarah Wanjiku",
+			"loan_amount": 25000,
+			"ai_score": 85,
+			"detected_salary": 60000,
+			"status": "Flagged",
+			"creation": "2026-02-09 11:15:00",
+			"flags": ["M-Pesa gambling transactions detected."]
+		},
+		{
+			"name": "LA-2026-0003",
+			"customer_name": "Philip Omondi",
+			"loan_amount": 100000,
+			"ai_score": 92,
+			"detected_salary": 85000,
+			"status": "AI Verified",
+			"creation": "2026-02-09 09:00:00",
+			"flags": []
+		}
+	]
+
 @frappe.whitelist(allow_guest=True, methods=['POST'], xss_safe=True)
 def onboard_customer(data):
     """
