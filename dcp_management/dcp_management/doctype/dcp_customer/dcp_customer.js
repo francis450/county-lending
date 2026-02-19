@@ -28,17 +28,5 @@ frappe.ui.form.on('DCP Customer', {
                 }, 5);
             }
         });
-	},
-
-    run_ai_verification: function(frm) {
-        frappe.call({
-            method: "dcp_management.dcp_management.doctype.dcp_customer.dcp_customer.DCPCustomer.run_ai_verification",
-            args: {
-                doc_name: frm.doc.name
-            },
-            callback: function(r) {
-                // The backend will show the initial message
-            }
-        });
-    }
+	}
 });

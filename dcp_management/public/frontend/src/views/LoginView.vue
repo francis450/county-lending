@@ -77,7 +77,6 @@
 import { ref } from 'vue';
 import { useRouter, RouterLink } from 'vue-router';
 import { useCustomerStore } from '@/stores/customer';
-import { auth } from '@/api';
 
 const router = useRouter();
 const customerStore = useCustomerStore();
@@ -92,11 +91,35 @@ const handleLogin = async () => {
   errorMessage.value = '';
 
   try {
-    await auth.login(email.value, password.value);
+    const csrfToken = window.csrf_token || '';
+
+    const res = await fetch('/api/method/login', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+        'X-Frappe-CSRF-Token': csrfToken,
+      },
+      credentials: 'include',
+      body: JSON.stringify({ usr: email.value, pwd: password.value }),
+    });
+
+    const data = await res.json();
+
+    if (!res.ok) {
+      // Show the actual server message if available
+      const msg = data?.message || data?.exc_type || `Login failed (HTTP ${res.status})`;
+      errorMessage.value = msg;
+      console.error('Login failed:', data);
+      return;
+    }
+
+    // Login succeeded — load customer profile then redirect
     await customerStore.fetchCurrentUser();
     router.push({ name: 'dashboard' });
   } catch (error) {
-    errorMessage.value = 'Authentication failed. Please verify credentials.';
+    console.error('Login error:', error);
+    errorMessage.value = error?.message || 'Network error. Please check your connection.';
   } finally {
     loading.value = false;
   }

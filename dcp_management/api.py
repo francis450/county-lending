@@ -48,15 +48,12 @@ def get_admin_application_queue():
 	]
 
 @frappe.whitelist(allow_guest=True, methods=['POST'], xss_safe=True)
-def onboard_customer(data):
+def onboard_customer(first_name, last_name, email, phone):
     """
     CBK Compliant Registration: Creates User + DCP Customer
     Stage 1: Self-Registration & Authentication
     """
     try:
-        customer_data = frappe.parse_json(data)
-        email = customer_data.get("email")
-        
         # Check if user already exists
         if frappe.db.exists("User", email):
             return {"error": "User with this email already exists"}
@@ -65,9 +62,9 @@ def onboard_customer(data):
         user = frappe.get_doc({
             "doctype": "User",
             "email": email,
-            "first_name": customer_data.get("first_name"),
-            "last_name": customer_data.get("last_name"),
-            "mobile_no": customer_data.get("phone"),
+            "first_name": first_name,
+            "last_name": last_name,
+            "mobile_no": phone,
             "enabled": 1,
             "send_welcome_email": 0,
             "user_type": "Website User"
@@ -83,10 +80,10 @@ def onboard_customer(data):
         # Step 2: Auto-create DCP Customer (CBK Requirement)
         dcp_customer = frappe.get_doc({
             "doctype": "DCP Customer",
-            "first_name": customer_data.get("first_name"),
-            "last_name": customer_data.get("last_name"),
+            "first_name": first_name,
+            "last_name": last_name,
             "email": email,
-            "phone": customer_data.get("phone"),
+            "phone": phone,
             "user_link": user.name,
             "status": "Pending",
             "kyc_status": "Incomplete"
@@ -170,73 +167,61 @@ def upload_kyc_documents(customer_id, national_id, files_data, kra_pin=None, res
 	Requires authenticated user
 	"""
 	try:
-		# Debug logging
-		frappe.log_error(title="KYC Upload Debug", message=f"""
-			customer_id: {customer_id}
-			national_id: {national_id}
-			kra_pin: {kra_pin}
-			residential_address: {residential_address}
-			county: {county}
-			city: {city}
-			postal_code: {postal_code}
-			files_data type: {type(files_data)}
-			files_data: {files_data}
-		""")
-		
 		# Verify user has permission to update this customer record
 		customer = frappe.get_doc("DCP Customer", customer_id)
 		
 		# Security check: ensure the logged-in user owns this customer record
 		if customer.user_link != frappe.session.user:
 			frappe.throw("You can only update your own KYC documents", frappe.PermissionError)
+		
+		# Parse files data
 		files = frappe.parse_json(files_data) if isinstance(files_data, str) else files_data
 		
 		# Update Customer Details
 		customer.national_id = national_id
-		if kra_pin: customer.kra_pin = kra_pin
-		if residential_address: customer.residential_address = residential_address
-		if county: customer.county = county
-		if city: customer.city = city
-		if postal_code: customer.postal_code = postal_code
+		if kra_pin: 
+			customer.kra_pin = kra_pin
+		if residential_address: 
+			customer.residential_address = residential_address
+		if county: 
+			customer.county = county
+		if city: 
+			customer.city = city
+		if postal_code: 
+			customer.postal_code = postal_code
 		
-		# File uploads are handled separately via upload_file API
-		# This method receives the file URLs/Paths or we check if they exist
-		# But wait, the frontend likely uploaded them already and is passing filenames/urls?
-		# The previous code didn't use 'files' variable.
-		# Let's assume frontend uploads via a separate call and we just check the doc
-		# OR we accept file paths here.
-		# The frontend snippet confirms files are uploaded separately effectively (or will be).
-		# Let's check the fields map.
-		
-		# If files_data contains links to files, we might not need to do much if they are attached.
-		# BUT, the `DCP Customer` doctype has fields like `national_id_front` which are Attach Image/File.
-		# We need to set those fields on the doc.
-		
+		# Map uploaded file URLs to DCP Customer fields
 		if files:
-			if files.get('id_front'): customer.national_id_front = files.get('id_front')
-			if files.get('id_back'): customer.national_id_back = files.get('id_back')
-			if files.get('kra_certificate'): customer.kra_pin_certificate = files.get('kra_certificate')
-			if files.get('passport_photo'): customer.passport_photo = files.get('passport_photo')
-
-		# Debug: Log what we're about to save
-		frappe.log_error(title="KYC Before Save", message=f"""
-			Customer: {customer.name}
-			national_id: {customer.national_id}
-			kra_pin: {customer.kra_pin}
-			residential_address: {customer.residential_address}
-			county: {customer.county}
-			city: {customer.city}
-			postal_code: {customer.postal_code}
-			national_id_front: {customer.national_id_front}
-			national_id_back: {customer.national_id_back}
-			kra_pin_certificate: {customer.kra_pin_certificate}
-			passport_photo: {customer.passport_photo}
-		""")
+			if files.get('national_id_front'): 
+				customer.national_id_front = files.get('national_id_front')
+			if files.get('national_id_back'): 
+				customer.national_id_back = files.get('national_id_back')
+			if files.get('passport_photo'): 
+				customer.passport_photo = files.get('passport_photo')
+			if files.get('kra_pin_certificate'): 
+				customer.kra_pin_certificate = files.get('kra_pin_certificate')
+			if files.get('payslip'): 
+				customer.payslip = files.get('payslip')
+			if files.get('mpesa_statement'): 
+				customer.mpesa_statement = files.get('mpesa_statement')
+			if files.get('bank_statement'): 
+				customer.bank_statement = files.get('bank_statement')
 
 		# Check if all required fields are present to mark as Pending Verification
 		required_fields = [
-			customer.national_id, customer.national_id_front, customer.national_id_back,
-			customer.kra_pin, customer.passport_photo, customer.residential_address
+			customer.national_id, 
+			customer.national_id_front, 
+			customer.national_id_back,
+			customer.kra_pin, 
+			customer.kra_pin_certificate,
+			customer.passport_photo, 
+			customer.payslip,
+			customer.mpesa_statement,
+			customer.bank_statement,
+			customer.residential_address,
+			customer.county,
+			customer.city,
+			customer.postal_code
 		]
 		
 		if all(required_fields):
@@ -469,6 +454,35 @@ def get_current_user_customer():
     except Exception as e:
         frappe.log_error("Get Current User Customer Error", message=str(e))
         return {"error": str(e), "customer": None}
+
+@frappe.whitelist()
+def get_customer_profile():
+    """
+    Get complete customer profile with KYC details for the current user
+    Returns all KYC fields and verification status
+    """
+    try:
+        if frappe.session.user == "Guest":
+            return {"error": "Not authenticated"}
+        
+        # Get customer record for current user
+        customer = frappe.db.get_value("DCP Customer", 
+                                      {"user_link": frappe.session.user}, 
+                                      ["name", "first_name", "last_name", "email", "phone", 
+                                       "kyc_status", "kyc_verified_date", "verified_by", "status",
+                                       "national_id", "national_id_front", "national_id_back",
+                                       "kra_pin", "kra_pin_certificate", "passport_photo",
+                                       "payslip", "mpesa_statement", "bank_statement",
+                                       "residential_address", "county", "city", "postal_code"], 
+                                      as_dict=True)
+        
+        if not customer:
+            return {"error": "Customer record not found"}
+        
+        return customer
+    except Exception as e:
+        frappe.log_error("Get Customer Profile Error", message=str(e))
+        return {"error": str(e)}
 
 @frappe.whitelist()
 def update_customer(customer_id, data):

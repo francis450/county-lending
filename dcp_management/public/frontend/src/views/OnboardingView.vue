@@ -147,7 +147,9 @@ const submitSignup = async () => {
       phone: '+254' + form.phone
     });
 
-    if (res.customer_id) {
+    const data = res.message || res;
+
+    if (data.customer_id) {
       showSuccess.value = true;
       setTimeout(() => {
         router.push({ name: 'login' });

@@ -45,6 +45,7 @@
 
             <template v-if="customerStore.isLoggedIn">
               <RouterLink to="/dashboard" class="nav-link" :class="{'nav-link-active': route.path === '/dashboard'}">Dashboard</RouterLink>
+              <RouterLink to="/profile" class="nav-link" :class="{'nav-link-active': route.path === '/profile'}">My Profile</RouterLink>
               <button @click="handleLogout"
                 class="text-soft-grey hover:text-alert-magenta text-xs font-bold uppercase tracking-widest transition">
                 Logout
@@ -86,6 +87,7 @@
               <div class="pt-4 mt-4 border-t border-gray-100">
                 <template v-if="customerStore.isLoggedIn">
                   <RouterLink @click="mobileMenuOpen = false" to="/dashboard" class="mobile-nav-link font-bold">Dashboard</RouterLink>
+                  <RouterLink @click="mobileMenuOpen = false" to="/profile" class="mobile-nav-link font-bold">My Profile</RouterLink>
                   <button @click="handleLogout(); mobileMenuOpen = false"
                     class="w-full text-left px-4 py-3 text-alert-magenta text-sm font-bold">
                     Logout

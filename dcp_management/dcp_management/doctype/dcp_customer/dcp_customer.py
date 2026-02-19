@@ -6,6 +6,7 @@ from frappe.model.document import Document
 from dcp_management.services.deepseek_service import analyze_document_with_vision
 
 class DCPCustomer(Document):
+	@frappe.whitelist()
 	def run_ai_verification(self):
 		"""
 		Triggered by the 'Run AI Verification' button.
@@ -14,8 +15,8 @@ class DCPCustomer(Document):
 		if not self.national_id_front:
 			frappe.throw("National ID (Front) is missing.")
 
-		# Get the full URL for the file
-		file_url = frappe.utils.get_url(self.national_id_front)
+		# Use the raw file path so the service can read private files directly from disk
+		file_url = self.national_id_front
 
 		prompt = """
 		Analyze the provided Kenyan National ID. Extract the following information:
@@ -46,7 +47,11 @@ def run_document_analysis(doc_name, file_url, prompt, result_field):
 	"""
 	try:
 		# Call the service
-		result = analyze_document_with_vision(file_url, prompt)
+		result = analyze_document_with_vision(
+			file_url, prompt,
+			reference_doctype="DCP Customer",
+			reference_name=doc_name,
+		)
 
 		# Update the document
 		frappe.db.set_value("DCP Customer", doc_name, result_field, result, update_modified=False)

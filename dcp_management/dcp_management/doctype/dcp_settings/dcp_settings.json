@@ -1,0 +1,56 @@
+{
+ "actions": [],
+ "creation": "2026-02-19 00:00:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "ai_provider_section",
+  "deepseek_api_key",
+  "deepseek_model"
+ ],
+ "fields": [
+  {
+   "fieldname": "ai_provider_section",
+   "fieldtype": "Section Break",
+   "label": "AI Provider (DeepSeek)"
+  },
+  {
+   "fieldname": "deepseek_api_key",
+   "fieldtype": "Password",
+   "label": "DeepSeek API Key",
+   "description": "API key from https://platform.deepseek.com. Required for AI document verification."
+  },
+  {
+   "default": "deepseek-vl-chat",
+   "fieldname": "deepseek_model",
+   "fieldtype": "Select",
+   "label": "DeepSeek Vision Model",
+   "options": "deepseek-vl-chat\ndeepseek-vl2\ndeepseek-vl2-small\ndeepseek-vl2-tiny",
+   "description": "Model used for document image analysis. 'deepseek-vl-chat' is the standard vision model."
+  }
+ ],
+ "issingle": 1,
+ "links": [],
+ "modified": "2026-02-19 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Dcp Management",
+ "name": "DCP Settings",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}
